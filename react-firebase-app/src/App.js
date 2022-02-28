@@ -75,22 +75,28 @@ function App() {
     fire.auth().signOut();
   };
 
-  const authListener = () => {
-    fire.auth().onAuthStatechanged(user => {
-      if (user) {
-        clearInputs();
-        setUser(user);
-      }
-      else {
-        setUser("");
-      }
-    });
-  };
-  useEffect(() => {
-    authListener();
-  }, []);
+  // const authListener = () => {
+  //   fire.auth.onAuthStatechanged(user => {
+  //     if (user) {
+  //       clearInputs();
+  //       setUser(user);
+  //     }
+  //     else {
+  //       setUser("");
+  //     }
+  //   });
+
+  // };
+  // useEffect(() => {
+  //   authListener();
+  // }, []);
   return (
     < div className="App">
+     
+        
+    <BrowserRouter>
+       
+      
       {user ? (<Hero handleLogout={handleLogout}/>):( 
       <Login 
         email={email} 
@@ -104,13 +110,12 @@ function App() {
         emailError={emailError}
         passwordError={passwordError} />)}
        
-        
-    <BrowserRouter>
-      <Header />
       <ToastContainer position="top-center" />
       <Switch>
        
-        <Route path="/" component={Home} />
+        <Route path="/" component={Login} />
+        <Header />
+        <Route path="/home" component={Home} />
         <Route path="/add" component={AddEdit} />
         <Route path="/update/:id" component={AddEdit} />
         <Route path="/view/:id" component={View} />
