@@ -5,11 +5,12 @@ import App from './App';
 
 
 ReactDOM.render(
-  <React.Strict >
-    <App />
-  </React.Strict>,
+  
+    <App />,
+ 
   document.getElementById('root')
 );
+
 
 
 

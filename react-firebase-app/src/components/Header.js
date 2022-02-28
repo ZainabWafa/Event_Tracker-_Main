@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useHistory } from "react-router-dom";
 import "./Header.css"; 
-// import {auth} from'../firebase'
+import Hero from "./Hero";
+
 
 const Header = () => {
-  const [activeTab, setActiveTab] = useState("Signin");
+  const [activeTab, setActiveTab] = useState("Home");
   const location = useLocation();
   const [search, setSearch] = useState("");
 
   const history = useHistory();
+  // const Hero=handleLogout();
 
   useEffect(() => {
     if (location.pathname === "/") {
       setActiveTab("Home");
-    //  } else if (location.pathname === "/") {
-    //     setActiveTab("Home");
     } else if (location.pathname === "/add") {
       setActiveTab("AddEvent");
     } else if (location.pathname === "/about") {
@@ -64,9 +64,10 @@ const Header = () => {
             About
           </p>
         </Link>
-        {/* <Link to="/">
-        <p className={`${activeTab === "Signout" ? "active" : ""}`}
-           onClick={() => auth.signOut()}>Sign out</p>
+        <Hero/>
+        {/* <Link to="/login">
+        <p ClassName ="hero" onClick={handleLogout}>
+           Logout</p>
         </Link> */}
       </div>
     </div>
